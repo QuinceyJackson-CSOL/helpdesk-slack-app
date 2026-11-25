@@ -46,6 +46,7 @@ For testing it runs as a free Render web service connected to this repository.
 - The four settings above are entered in Render under Environment.
 - Render's free plan needs a web address, so when Render sets a PORT the app also serves a tiny "helpdesk app is running" page. It does nothing when run locally.
 - Limitation: a free Render service sleeps after about 15 minutes without web traffic. The first `/helpdesk` after a sleep can fail. Opening the service address in a browser wakes it in about a minute.
+- Keep-alive: a free UptimeRobot monitor (HTTP check, every 5 minutes) visits the service address so it never sits idle for 15 minutes. It also emails if the app goes down. Free Render allows 750 hours a month, enough for one service running all month. This is a stopgap until the move to AWS, where an always-on host makes it unnecessary.
 
 ## Planned: move to AWS
 
